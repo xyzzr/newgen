@@ -32,7 +32,7 @@ getgenv().boboware.WallHack = {
 	Settings = {
 		Enabled = false,
 		TeamCheck = false,
-		AliveCheck = true
+		AliveCheck = false
 	},
 
 	Visuals = {
@@ -41,26 +41,26 @@ getgenv().boboware.WallHack = {
 			Color = Color3fromRGB(255, 255, 255),
 			Transparency = 0.2,
 			Thickness = 0,
-			Filled = true,
+			Filled = false,
 			EntireBody = false -- For R15, keep false to prevent lag
 		},
 
 		ESPSettings = {
-			Enabled = true,
+			Enabled = false,
 			TextColor = Color3fromRGB(255, 255, 255),
 			TextSize = 14,
-			Outline = true,
+			Outline = false,
 			OutlineColor = Color3fromRGB(0, 0, 0),
 			TextTransparency = 0.7,
 			TextFont = Drawing.Fonts.UI, -- UI, System, Plex, Monospace
 			Offset = 20,
-			DisplayDistance = true,
-			DisplayHealth = true,
-			DisplayName = true
+			DisplayDistance = false,
+			DisplayHealth = false,
+			DisplayName = false
 		},
 
 		TracersSettings = {
-			Enabled = true,
+			Enabled = false,
 			Type = 1, -- 1 - Bottom; 2 - Center; 3 - Mouse
 			Transparency = 0.7,
 			Thickness = 1,
@@ -68,7 +68,7 @@ getgenv().boboware.WallHack = {
 		},
 
 		BoxSettings = {
-			Enabled = true,
+			Enabled = false,
 			Type = 1; -- 1 - 3D; 2 - 2D
 			Color = Color3fromRGB(255, 255, 255),
 			Transparency = 0.7,
@@ -78,7 +78,7 @@ getgenv().boboware.WallHack = {
 		},
 
 		HeadDotSettings = {
-			Enabled = true,
+			Enabled = false,
 			Color = Color3fromRGB(255, 255, 255),
 			Transparency = 0.5,
 			Thickness = 1,
@@ -111,7 +111,7 @@ getgenv().boboware.WallHack = {
 			CenterDotColor = Color3fromRGB(171, 38, 255),
 			CenterDotSize = 1,
 			CenterDotTransparency = 1,
-			CenterDotFilled = true,
+			CenterDotFilled = false,
 			CenterDotThickness = 1
 		},
 
@@ -892,26 +892,26 @@ function Environment.Functions:ResetSettings()
 			Color = Color3fromRGB(255, 255, 255),
 			Transparency = 0.2,
 			Thickness = 0,
-			Filled = true,
+			Filled = false,
 			EntireBody = false -- For R15, keep false to prevent lag
 		},
 
 		ESPSettings = {
-			Enabled = true,
+			Enabled = false,
 			TextColor = Color3fromRGB(255, 255, 255),
 			TextSize = 14,
-			Center = true,
-			Outline = true,
+			Center = false,
+			Outline = false,
 			OutlineColor = Color3fromRGB(0, 0, 0),
 			TextTransparency = 0.7,
 			TextFont = Drawing.Fonts.UI, -- UI, System, Plex, Monospace
-			DisplayDistance = true,
-			DisplayHealth = true,
-			DisplayName = true
+			DisplayDistance = false,
+			DisplayHealth = false,
+			DisplayName = false
 		},
 
 		TracersSettings = {
-			Enabled = true,
+			Enabled = false,
 			Type = 1, -- 1 - Bottom; 2 - Center; 3 - Mouse
 			Transparency = 0.7,
 			Thickness = 1,
@@ -919,7 +919,7 @@ function Environment.Functions:ResetSettings()
 		},
 
 		BoxSettings = {
-			Enabled = true,
+			Enabled = false,
 			Type = 1; -- 1 - 3D; 2 - 2D
 			Color = Color3fromRGB(255, 255, 255),
 			Transparency = 0.7,
@@ -929,11 +929,11 @@ function Environment.Functions:ResetSettings()
 		},
 
 		HeadDotSettings = {
-			Enabled = true,
+			Enabled = false,
 			Color = Color3fromRGB(255, 255, 255),
 			Transparency = 0.5,
 			Thickness = 1,
-			Filled = true,
+			Filled = false,
 			Sides = 30
 		},
 
@@ -960,14 +960,14 @@ function Environment.Functions:ResetSettings()
 		CenterDotColor = Color3fromRGB(0, 255, 0),
 		CenterDotSize = 1,
 		CenterDotTransparency = 1,
-		CenterDotFilled = true,
+		CenterDotFilled = false,
 		CenterDotThickness = 1
 	}
 
 	Environment.Settings = {
 		Enabled = false,
 		TeamCheck = false,
-		AliveCheck = true
+		AliveCheck = false
 	}
 end
 
