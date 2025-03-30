@@ -1,18 +1,7 @@
---[[
-
-                      > boboware by xyzzr © CC0 1.0 Universal (2024) <
-    > Licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. <
-
-]]
-
 --// Cache
 
 local select, next, tostring, pcall, getgenv, setmetatable, mathfloor, mathabs, mathcos, mathsin, mathrad, wait = select, next, tostring, pcall, getgenv, setmetatable, math.floor, math.abs, math.cos, math.sin, math.rad, task.wait
 local WorldToViewportPoint, Vector2new, Vector3new, Vector3zero, CFramenew, Drawingnew, Color3fromRGB = nil, Vector2.new, Vector3.new, Vector3.zero, CFrame.new, Drawing.new, Color3.fromRGB
-
---// Launching checks
-
-if not getgenv().boboware then return end
 
 --// Services
 
@@ -28,7 +17,7 @@ local ServiceConnections = {}
 
 --// Environment
 
-getgenv().boboware.WallHack = {
+getgenv().esp = {
 	Settings = {
 		Enabled = false,
 		TeamCheck = false,
@@ -127,7 +116,7 @@ getgenv().boboware.WallHack = {
 	WrappedPlayers = {}
 }
 
-local Environment = getgenv().boboware.WallHack
+local Environment = getgenv().esp
 
 --// Core Functions
 
@@ -865,8 +854,8 @@ function Environment.Functions:Exit()
 		end
 	end
 
-	getgenv().boboware.WallHack.Functions = nil
-	getgenv().boboware.WallHack = nil
+	getgenv().esp.Functions = nil
+	getgenv().esp = nil
 
 	Load = nil; GetPlayerTable = nil; AssignRigType = nil; InitChecks = nil; UpdateCham = nil; Visuals = nil; Wrap = nil; UnWrap = nil
 end
