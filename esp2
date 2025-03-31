@@ -27,7 +27,7 @@ getgenv().esp = {
 	Visuals = {
 		ChamsSettings = {
 			Enabled = false,
-			Color = Color3fromRGB(255, 255, 255),
+			Color = Color3fromRGB(89, 125, 255),
 			Transparency = 0.2,
 			Thickness = 0,
 			Filled = false,
@@ -36,7 +36,7 @@ getgenv().esp = {
 
 		ESPSettings = {
 			Enabled = false,
-			TextColor = Color3fromRGB(255, 255, 255),
+			TextColor = Color3fromRGB(89, 125, 255),
 			TextSize = 14,
 			Outline = false,
 			OutlineColor = Color3fromRGB(0, 0, 0),
@@ -53,13 +53,13 @@ getgenv().esp = {
 			Type = 1, -- 1 - Bottom; 2 - Center; 3 - Mouse
 			Transparency = 0.7,
 			Thickness = 1,
-			Color = Color3fromRGB(255, 255, 255)
+			Color = Color3fromRGB(89, 125, 255)
 		},
 
 		BoxSettings = {
 			Enabled = false,
 			Type = 1; -- 1 - 3D; 2 - 2D
-			Color = Color3fromRGB(255, 255, 255),
+			Color = Color3fromRGB(89, 125, 255),
 			Transparency = 0.7,
 			Thickness = 1,
 			Filled = false, -- For 2D
@@ -68,7 +68,7 @@ getgenv().esp = {
 
 		HeadDotSettings = {
 			Enabled = false,
-			Color = Color3fromRGB(255, 255, 255),
+			Color = Color3fromRGB(89, 125, 255),
 			Transparency = 0.5,
 			Thickness = 1,
 			Filled = false,
@@ -878,7 +878,7 @@ function Environment.Functions:ResetSettings()
 	Environment.Visuals = {
 		ChamsSettings = {
 			Enabled = false,
-			Color = Color3fromRGB(255, 255, 255),
+			Color = Color3fromRGB(89, 125, 255),
 			Transparency = 0.2,
 			Thickness = 0,
 			Filled = false,
@@ -887,7 +887,7 @@ function Environment.Functions:ResetSettings()
 
 		ESPSettings = {
 			Enabled = false,
-			TextColor = Color3fromRGB(255, 255, 255),
+			TextColor = Color3fromRGB(89, 125, 255),
 			TextSize = 14,
 			Center = false,
 			Outline = false,
@@ -904,13 +904,13 @@ function Environment.Functions:ResetSettings()
 			Type = 1, -- 1 - Bottom; 2 - Center; 3 - Mouse
 			Transparency = 0.7,
 			Thickness = 1,
-			Color = Color3fromRGB(255, 255, 255)
+			Color = Color3fromRGB(89, 125, 255)
 		},
 
 		BoxSettings = {
 			Enabled = false,
 			Type = 1; -- 1 - 3D; 2 - 2D
-			Color = Color3fromRGB(255, 255, 255),
+			Color = Color3fromRGB(89, 125, 255),
 			Transparency = 0.7,
 			Thickness = 1,
 			Filled = false, -- For 2D
@@ -919,7 +919,7 @@ function Environment.Functions:ResetSettings()
 
 		HeadDotSettings = {
 			Enabled = false,
-			Color = Color3fromRGB(255, 255, 255),
+			Color = Color3fromRGB(89, 125, 255),
 			Transparency = 0.5,
 			Thickness = 1,
 			Filled = false,
