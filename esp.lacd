@@ -77,7 +77,7 @@ getgenv().esp = {
 
 		HealthBarSettings = {
 			Enabled = false,
-			Transparency = 1,
+			Transparency = 0,
 			Size = 2,
 			Offset = 10,
 			OutlineColor = Color3fromRGB(0, 0, 0),
@@ -928,7 +928,7 @@ function Environment.Functions:ResetSettings()
 
 		HealthBarSettings = {
 			Enabled = false,
-			Transparency = 1,
+			Transparency = 0,
 			Size = 2,
 			Offset = 10,
 			OutlineColor = Color3fromRGB(0, 0, 0),
