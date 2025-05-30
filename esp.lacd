@@ -627,13 +627,13 @@ local Visuals = {
 							PlayerTable.HealthBar.Main.Color = Color3fromRGB(255 - mathfloor(Humanoid.Health / 100 * 255), mathfloor(Humanoid.Health / 100 * 255), Environment.Visuals.HealthBarSettings.Blue)
 							PlayerTable.HealthBar.Main.Transparency = Environment.Visuals.HealthBarSettings.Transparency
 							PlayerTable.HealthBar.Main.Filled = true
-							PlayerTable.HealthBar.Main.ZIndex = 2
+							PlayerTable.HealthBar.Main.ZIndex = 1
 
 							PlayerTable.HealthBar.Outline.Thickness = 3
 							PlayerTable.HealthBar.Outline.Color = Environment.Visuals.HealthBarSettings.OutlineColor
 							PlayerTable.HealthBar.Outline.Transparency = Environment.Visuals.HealthBarSettings.Transparency
 							PlayerTable.HealthBar.Outline.Filled = false
-							PlayerTable.HealthBar.Main.ZIndex = 1
+							PlayerTable.HealthBar.Main.ZIndex = 2
 
 							if Environment.Visuals.HealthBarSettings.Type == 1 then
 								PlayerTable.HealthBar.Outline.Size = Vector2new(2000 / Vector.Z, Environment.Visuals.HealthBarSettings.Size)
