@@ -627,7 +627,7 @@ local Visuals = {
 							PlayerTable.HealthBar.Main.Color = Color3.fromRGB(0, 255, 0)
 							PlayerTable.HealthBar.Main.Transparency = 0 -- ok sybau
 							PlayerTable.HealthBar.Main.Filled = true
-							PlayerTable.HealthBar.Main.ZIndex = 1
+							PlayerTable.HealthBar.Main.ZIndex = 3
 
 							PlayerTable.HealthBar.Outline.Thickness = 3
 							PlayerTable.HealthBar.Outline.Color = Environment.Visuals.HealthBarSettings.OutlineColor
