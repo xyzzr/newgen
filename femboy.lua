@@ -1,5 +1,6 @@
-local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+-- fuckass script
 
+local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 local femboypants = char:FindFirstChildOfClass("Pants")
 local femboyshirt = char:FindFirstChildOfClass("Shirt")
 
