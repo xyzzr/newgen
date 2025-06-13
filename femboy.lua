@@ -25,7 +25,7 @@ end
 local found = false
 for _, x in ipairs(char:GetChildren()) do
     if x:IsA("Accessory") and x.Name == "Pal Hair" then
-		print("[+] found Pal Hair")
+        print("[+] found Pal Hair")
         x.Handle.Mesh.MeshId = "rbxassetid://14871933706"
         x.Handle.Mesh.TextureId = "rbxassetid://14423578564"
         x.Handle.Mesh.Scale = Vector3.new(1, 1, 1)
