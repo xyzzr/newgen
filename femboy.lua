@@ -1,5 +1,5 @@
 -- fuckass script
-
+-- R6 Bacon --> R6 Femboy 
 local char = game:GetService("Players").LocalPlayer.Character or game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
 local femboypants = char:FindFirstChildOfClass("Pants")
 local femboyshirt = char:FindFirstChildOfClass("Shirt")
